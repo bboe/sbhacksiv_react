@@ -11,16 +11,30 @@ function App() {
   );
 }
 
-function Calculator() {
-    return (
-        <div>
-            <input />
-            +
-            <input />
-            =
-            <input />
-        </div>
-    )
+class Calculator extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            lhs: "",
+            rhs: ""
+        }
+    }
+
+    onLHSChange = event => {
+        this.setState({lhs: event.target.value});
+    }
+
+    render() {
+        return (
+            <div>
+                <input placeholder="lhs" onChange={this.onLHSChange} value={this.state.lhs}/>
+                +
+                <input placeholder="rhs" value={this.state.rhs}/>
+                =
+                <input placeholder="result" value={this.state.lhs + this.state.rhs} disabled />
+            </div>
+        )
+    }
 }
 
 export default App;
