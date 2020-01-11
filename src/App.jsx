@@ -20,16 +20,16 @@ class Calculator extends React.Component {
         }
     }
 
-    onLHSChange = event => {
-        this.setState({lhs: event.target.value});
+    onChange = event => {
+        this.setState({[event.target.name]: event.target.value});
     }
 
     render() {
         return (
             <div>
-                <input placeholder="lhs" onChange={this.onLHSChange} value={this.state.lhs}/>
+                <input placeholder="lhs" name="lhs" onChange={this.onChange} value={this.state.lhs}/>
                 +
-                <input placeholder="rhs" value={this.state.rhs}/>
+                <input placeholder="rhs" name="rhs" onChange={this.onChange} value={this.state.rhs}/>
                 =
                 <input placeholder="result" value={this.state.lhs + this.state.rhs} disabled />
             </div>
