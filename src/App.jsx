@@ -21,7 +21,8 @@ class Calculator extends React.Component {
     }
 
     onChange = event => {
-        this.setState({[event.target.name]: event.target.value});
+        let value = parseInt(event.target.value) || "";
+        this.setState({[event.target.name]: value});
     }
 
     render() {
